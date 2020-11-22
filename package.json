@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run build ",
-    "install-f": "&& npm install",
-    "heroku-postbuild": "npm run install-client && npm run build",
+    "build": "",
+    "install-f": "",
+    "heroku-postbuild": "",
     "start": "node index.js"
   },
   "engines": {
