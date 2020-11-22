@@ -16,17 +16,17 @@ router.post("/register", async (req, res) => {
     if (password.length < 5)
       return res
         .status(400)
-        .json({ msg: "The password needs to be at least 5 characters long." });
+        .json({ msg: "The password needs to be at least 5 characters long. 🙃🙃" });
     if (password !== passwordCheck)
       return res
         .status(400)
-        .json({ msg: "Enter the same password twice for verification." });
+        .json({ msg: "Enter the same password twice for verification. 🥱🥱" });
 
     const existingUser = await User.findOne({ email: email });
     if (existingUser)
       return res
         .status(400)
-        .json({ msg: "An account with this email already exists." });
+        .json({ msg: "Username already exists.😔" });
 
     if (!displayName) displayName = email;
 
@@ -56,7 +56,7 @@ router.post("/login", async (req, res) => {
     if (!user)
       return res
         .status(400)
-        .json({ msg: "No account with this email has been registered." });
+        .json({ msg: "No username found 😶 Are u a Bot ??🤨." });
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) return res.status(400).json({ msg: "Invalid Password..😨 Calling FBI 🚨" });
@@ -211,9 +211,6 @@ router.post("/:shortUrl", async (req, res) => {
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
-
-
-
 });
 
 
